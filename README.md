@@ -1,4 +1,4 @@
-# battleship-tech-test
+# Battleship Tech Test
 
 ## User stories
 
