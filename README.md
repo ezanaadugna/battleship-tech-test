@@ -13,4 +13,4 @@ User can
 * know when they've sunk an opponents ship
 * known ehn they have won or lost
 * see hits and misses so far, upon request
-* play a two player game against a human opponent
+* play a two player game against a human opponent.
