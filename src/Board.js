@@ -11,7 +11,7 @@ class board {
   };
 
   isValidPosition(position) {
-    // Checks if a given position is within the boundaries of the board
+    // Checks if a given position is within the boundaries of the board i.e checks if the player had already attacked that cell
   }
   isPositionEmpty(position) {
     // Checks if a given position on the board is empty
@@ -22,5 +22,7 @@ class board {
     // It should check for constraints like board boundaries and ship overlaps.
     // If the placement is succesful, update the grid.
   }
-
+  receiveAttack(position) {
+    // Accepts a position and registers the attack on the board. It should return whether the attack was a hit or a miss.
+  }
 }
