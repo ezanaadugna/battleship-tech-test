@@ -1,28 +1,75 @@
-// Properties:
-// size: 10 x 10
-// grid: A 2D array representing the board grid. Each cell in the grid will hold information about whether it's empty or occupied by a ship.
-
-
-// Methods:
-class board {
-  
+class Board {
   constructor(size) {
-    // Initializes the board with the given size and sets up the grid [ 10 x10 ].
-  };
+    this.size = size;
+    this.grid = this.createGrid(size);
+  }
+
+  createGrid(size) {
+    return Array.from({ length: size }, () => Array.from({ length: size }, () => false));
+  }
 
   isValidPosition(position) {
-    // Checks if a given position is within the boundaries of the board i.e checks if the player had already attacked that cell
+    const { x, y } = position;
+    return x >= 0 && x < this.size && y >= 0 && y < this.size;
   }
+
   isPositionEmpty(position) {
-    // Checks if a given position on the board is empty
+    const { x, y } = position;
+    return this.isValidPosition(position) && !this.grid[x][y];
   }
 
   placeShip(ship, position, direction) {
-    // Attempts to place a ship on the board at the given position and direction. 
-    // It should check for constraints like board boundaries and ship overlaps.
-    // If the placement is succesful, update the grid.
+    if (!this.isValidPosition(position)) {
+      return false;
+    }
+
+    const { size } = ship;
+    const { x, y } = position;
+    const positionsToCheck = [];
+    
+    if (direction === 'horizontal') {
+      if (x + size > this.size) {
+        return false;
+      }
+      for (let i = x; i < x + size; i++) {
+        positionsToCheck.push({ x: i, y });
+      }
+    } else if (direction === 'vertical') {
+      if (y + size > this.size) {
+        return false;
+      }
+      for (let i = y; i < y + size; i++) {
+        positionsToCheck.push({ x, y: i });
+      }
+    } else {
+      return false;
+    }
+
+    for (const pos of positionsToCheck) {
+      if (!this.isPositionEmpty(pos)) {
+        return false;
+      }
+    }
+
+    // All checks passed, place the ship
+    for (const pos of positionsToCheck) {
+      this.grid[pos.x][pos.y] = true;
+    }
+    return true;
   }
+
   receiveAttack(position) {
-    // Accepts a position and registers the attack on the board. It should return whether the attack was a hit or a miss.
+    if (!this.isValidPosition(position)) {
+      return false;
+    }
+
+    const { x, y } = position;
+    if (this.grid[x][y]) {
+      return true; // It's a hit!
+    } else {
+      return false; // It's a miss.
+    }
   }
 }
+
+module.exports = Board;
