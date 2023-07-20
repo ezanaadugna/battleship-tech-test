@@ -15,6 +15,10 @@ class Ship {
     // Accepts a position and checks if the ship is hit at that location. If it is hit, update the ship's internal state to reflect the hit.
   }
 
+  isPositionOnShip(position) {
+    // Checks if the provided position is within the boundaries of the ship.
+  }
+
   isSunk() {
     // Checks if the ship is sunk
   }
