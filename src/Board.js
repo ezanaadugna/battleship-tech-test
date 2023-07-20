@@ -45,6 +45,7 @@ class Board {
       return false;
     }
 
+    // Check if positions are empty before placing the ship
     for (const pos of positionsToCheck) {
       if (!this.isPositionEmpty(pos)) {
         return false;
