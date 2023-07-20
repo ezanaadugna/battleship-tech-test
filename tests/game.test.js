@@ -15,7 +15,7 @@ describe('Game', () => {
   test('should start the game and alternate turns', () => {
     game.start();
 
-    // Add your assertions here to check if the game flow is working correctly
+    // Add assertions here to check if the game flow is working correctly
   });
 
   test('should detect when a player has won or lost', () => {

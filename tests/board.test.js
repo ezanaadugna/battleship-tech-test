@@ -14,7 +14,7 @@ describe('Board', () => {
 
     board.placeShip(ship, position, direction);
 
-    // Add your assertions here to check if the ship is correctly placed on the board
+    // Add assertions here to check if the ship is correctly placed on the board
   });
 
   test('should not allow placing a ship outside the board', () => {

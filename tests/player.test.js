@@ -16,7 +16,7 @@ describe('Player', () => {
 
     player.fire({ x: 5, y: 5 });
 
-    // Add your assertions here to check if the firing logic is working correctly
+    // Add assertions here to check if the firing logic is working correctly
   });
 
   test('should not allow firing at the same position multiple times', () => {
